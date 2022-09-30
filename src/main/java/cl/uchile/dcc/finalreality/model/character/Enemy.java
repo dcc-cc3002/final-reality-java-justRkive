@@ -7,10 +7,10 @@ import java.util.concurrent.BlockingQueue;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A class that holds all the information of a single enemy of the game.
+ * A class holds all the information of a single enemy of the game.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author Katia
  */
 public class Enemy extends AbstractCharacter {
 
@@ -53,5 +53,13 @@ public class Enemy extends AbstractCharacter {
   @Override
   public int hashCode() {
     return Objects.hash(Enemy.class, name, weight, maxHp, defense);
+  }
+
+  @Override
+  public String toString() {
+    return "Enemy{weight=%d, maxHp=%d, defense=%d, name='%s'}"
+            .formatted(weight, maxHp, defense, name);
+
+
   }
 }
