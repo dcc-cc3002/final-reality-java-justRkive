@@ -36,7 +36,7 @@ public abstract class AbstractCharacter implements GameCharacter {
    * @param turnsQueue
    *     the queue with the characters waiting for their turn
    */
-  protected AbstractCharacter(@NotNull String name, int maxHp, int defense,
+  public AbstractCharacter(@NotNull String name, int maxHp, int defense,
       @NotNull BlockingQueue<GameCharacter> turnsQueue) throws InvalidStatValueException {
     Require.statValueAtLeast(1, maxHp, "Max HP");
     Require.statValueAtLeast(0, defense, "Defense");

@@ -44,12 +44,19 @@ public class Main {
         party.add(enemy);
 
         /**
-         * toString
+         * toString and equals
          */
+        System.out.println("Demostrating toString");
         for (int i = 0; i < 6; i++) {
-
             System.out.println(party.get(i).toString());
         }
+        System.out.println("----");
+        System.out.println("Demostrating equals");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(party.get(i).equals(party.get(i)));
+            System.out.println(party.get(i).equals(party.get(i+1)));
+        }
+
 
 
 
