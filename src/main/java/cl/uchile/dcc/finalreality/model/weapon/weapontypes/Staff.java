@@ -41,7 +41,7 @@ public class Staff extends AbstractWeapon {
   
   @Override
   public String toString() {
-    return "Weapon{name='%s', damage=%d, weight=%d, type=%s}"
+    return "Staff{name='%s', damage=%d, weight=%d}"
           .formatted(name, damage, weight);
   }
 }
