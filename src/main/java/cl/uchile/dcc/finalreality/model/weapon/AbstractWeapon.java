@@ -1,14 +1,12 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-import java.util.Objects;
-
 /**
  * A class that holds all the information of a weapon.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
  * @author Katia
  */
-public abstract class Weapon {
+public abstract class AbstractWeapon {
 
   protected final String name;
   protected final int damage;
@@ -17,7 +15,7 @@ public abstract class Weapon {
   /**
    * Creates a weapon with a name, a base damage, speed, and it's type.
    */
-  public Weapon(final String name, int damage, int weight) {
+  public AbstractWeapon(final String name, final int damage, final int weight) {
     this.name = name;
     this.damage = damage;
     this.weight = weight;
@@ -37,10 +35,6 @@ public abstract class Weapon {
   public int getWeight() {
     return weight;
   }
-
-//  private WeaponType getType() {
-//    return type;
-//  }
 
 
 }

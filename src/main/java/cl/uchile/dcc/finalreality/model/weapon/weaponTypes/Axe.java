@@ -1,11 +1,10 @@
 package cl.uchile.dcc.finalreality.model.weapon.weaponTypes;
 
-import cl.uchile.dcc.finalreality.model.weapon.Weapon;
-import cl.uchile.dcc.finalreality.model.weapon.WeaponType;
+import cl.uchile.dcc.finalreality.model.weapon.AbstractWeapon;
 
 import java.util.Objects;
 
-public class Axe extends Weapon {
+public class Axe extends AbstractWeapon {
     /**
      * Creates a weapon with a name, a base damage, speed, and it's type.
      *
@@ -13,7 +12,7 @@ public class Axe extends Weapon {
      * @param damage
      * @param weight
      */
-    public Axe(String name, int damage, int weight) {
+    public Axe(final String name, final int damage, final int weight) {
         super(name, damage, weight);
     }
 
@@ -22,7 +21,7 @@ public class Axe extends Weapon {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof final Weapon weapon)) {
+        if (!(o instanceof final AbstractWeapon weapon)) {
             return false;
         }
         return hashCode() == weapon.hashCode()
@@ -34,7 +33,7 @@ public class Axe extends Weapon {
 
     @Override
     public int hashCode() {
-        return Objects.hash(Weapon.class, name, damage, weight);
+        return Objects.hash(AbstractWeapon.class, name, damage, weight);
     }
 
     @Override
