@@ -25,7 +25,6 @@ public class Main {
    * @param args The command line arguments.
    * @throws InvalidStatValueException Throws a Java exeption.
    */
-  
   public static void main(String[] args) throws InvalidStatValueException {
     BlockingQueue<GameCharacter> mainQueue = new LinkedBlockingQueue<>();
     Random rng = new Random();
