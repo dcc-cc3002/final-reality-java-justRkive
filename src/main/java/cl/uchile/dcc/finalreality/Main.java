@@ -29,6 +29,7 @@ public class Main {
     BlockingQueue<GameCharacter> mainQueue = new LinkedBlockingQueue<>();
     Random rng = new Random();
     List<GameCharacter> party = new ArrayList<GameCharacter>();
+    // We create all the characters in order to test their constructors
     PlayerCharacter engineer = new Engineer("Engineer person", 10, 5, mainQueue);
     party.add(engineer);
     PlayerCharacter blackMage = new BlackMage("BlackMage person", 11, 6, 20, mainQueue);
@@ -103,16 +104,25 @@ public class Main {
     System.out.println("-------------");
     
 
-    System.out.println("(6) Testing getDefense() for every character");
+    System.out.println("(7) Testing getDefense() for every character");
     for (int i = 0; i < 6; i++) {
       System.out.println(i + ". Testing for " + party.get(i).getClass().getSimpleName());
       System.out.println("Defense is: " + party.get(i).getDefense());
     }
     System.out.println("-------------");
+  
+    List<GameCharacter> weapons = new ArrayList<GameCharacter>();
+    // We create all the weapon types in order to test their constructors
     
-    
-    
-    
+  
+  
+  
+  
+    System.out.println("(8) Testing equip() for every character");
+  
+  
+  
+  
     System.out.println("-------------");
 
     System.out.println("(3) Testing waitTurn() for every character");
