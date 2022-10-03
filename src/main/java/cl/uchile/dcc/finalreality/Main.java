@@ -10,10 +10,10 @@ import cl.uchile.dcc.finalreality.model.character.player.Thief;
 import cl.uchile.dcc.finalreality.model.character.player.mage.BlackMage;
 import cl.uchile.dcc.finalreality.model.character.player.mage.WhiteMage;
 import cl.uchile.dcc.finalreality.model.weapon.weapontypes.*;
+import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Stack;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -47,7 +47,7 @@ public class Main {
     party.add(enemy);
   
     // We create all the weapon types in order to test their constructors
-    List<Object> weapons = new ArrayList<Object>();
+    List<Weapon> weapons = new ArrayList<Weapon>();
     Axe axe0 = new Axe("Hacha fea", 13, 300);
     weapons.add(axe0);
     Bow bow0 = new Bow("Arco", 9, 105);
@@ -107,14 +107,20 @@ public class Main {
   
     System.out.println("-------------");
   
-    System.out.println("(3) Testing getName() for every character");
+    System.out.println("(3) Testing getName() for every character and weapon");
+    System.out.println("CHARACTERS ---");
     for (int i = 0; i < 6; i++) {
       System.out.println(i + ". Testing for " + party.get(i).getClass().getSimpleName());
       System.out.println("Name is: " + party.get(i).getName());
     }
+    System.out.println("---");
+    System.out.println("WEAPONS---");
+    for (int i = 0; i < 5; i++) {
+      System.out.println(i + ". Testing for " + weapons.get(i).getClass().getSimpleName());
+      System.out.println("Name is: " + weapons.get(i).getName());
+    }
     System.out.println("-------------");
-  
-  
+    
     System.out.println("(4) Testing getMaxHp() for every character");
     for (int i = 0; i < 6; i++) {
       System.out.println(i + ". Testing for " + party.get(i).getClass().getSimpleName());

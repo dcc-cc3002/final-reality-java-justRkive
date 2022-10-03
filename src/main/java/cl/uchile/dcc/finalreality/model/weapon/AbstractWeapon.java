@@ -6,7 +6,7 @@ package cl.uchile.dcc.finalreality.model.weapon;
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
  * @author Katia
  */
-public abstract class AbstractWeapon {
+public abstract class AbstractWeapon implements Weapon {
 
   protected final String name;
   protected final int damage;
@@ -25,7 +25,7 @@ public abstract class AbstractWeapon {
     return name;
   }
 
-  private int getDamage() {
+  public int getDamage() {
     return damage;
   }
 
