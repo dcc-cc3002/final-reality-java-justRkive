@@ -47,10 +47,8 @@ public abstract class AbstractCharacter implements GameCharacter {
     this.name = name;
   }
   
-  /**
-   * Adds this character to the turns queue.
-   */
-  protected void addToQueue() {
+  @Override
+  public void addToQueue() {
     try {
       turnsQueue.put(this);
     } catch (Exception e) {

@@ -27,7 +27,7 @@ public class Main {
    * @param args The command line arguments.
    * @throws InvalidStatValueException Throws a Java exeption.
    */
-  public static void main(String[] args) throws InvalidStatValueException {
+  public static void main(String[] args) throws InvalidStatValueException, InterruptedException {
     BlockingQueue<GameCharacter> mainQueue = new LinkedBlockingQueue<>();
     Random rng = new Random();
     
@@ -178,6 +178,27 @@ public class Main {
       
     }
   
+    System.out.println("---------------------------------------");
+  
+    System.out.println("(10) Testing waitTurn() for every character");
+    for (int i = 0; i < 6; i++) {
+      characters.get(i).waitTurn();
+    }
+    // Waits for 10 seconds to ensure that all characters have finished waiting
+    Thread.sleep(10000);
+    System.out.println("Characters in queue:");
+    while (!mainQueue.isEmpty()) {
+      // Pops and prints the names of the characters of the queue to illustrate the turns
+      // order
+      System.out.println(mainQueue.poll().toString());
+    }
+  
+    System.out.println("---------------------------------------");
+  
+    System.out.println("(11) Testing addToQueue() for every character");
+    for (int i = 0; i < 6; i++) {
+      characters.get(i).addToQueue();
+    }
     System.out.println("-------------");
 
     System.out.println("(3) Testing waitTurn() for every character");
