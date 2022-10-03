@@ -9,8 +9,12 @@ import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import cl.uchile.dcc.finalreality.model.character.player.Thief;
 import cl.uchile.dcc.finalreality.model.character.player.mage.BlackMage;
 import cl.uchile.dcc.finalreality.model.character.player.mage.WhiteMage;
-import cl.uchile.dcc.finalreality.model.weapon.weapontypes.*;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Axe;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Bow;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Knife;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Staff;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Sword;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -35,18 +39,18 @@ public class Main {
     List<PlayerCharacter> party = new ArrayList<PlayerCharacter>();
     PlayerCharacter engineer = new Engineer("Engineer person", 10, 5, mainQueue);
     party.add(engineer);
-    PlayerCharacter blackMage = new BlackMage("BlackMage person", 11, 6, 20, mainQueue);
+    BlackMage blackMage = new BlackMage("BlackMage person", 11, 6, 20, mainQueue);
     party.add(blackMage);
     PlayerCharacter knight = new Knight("Knight person", 11, 15, mainQueue);
     party.add(knight);
     PlayerCharacter thief = new Thief("Thief person", 10, 7, mainQueue);
     party.add(thief);
-    PlayerCharacter whiteMage = new WhiteMage("WhiteMage person", 6, 11, 19, mainQueue);
+    WhiteMage whiteMage = new WhiteMage("WhiteMage person", 6, 11, 19, mainQueue);
     party.add(whiteMage);
    
     // We create another list with all the characters including enemy
     List<GameCharacter> characters = new ArrayList<GameCharacter>(party);
-    GameCharacter enemy = new Enemy("Bad person", 100, 15, 5, mainQueue);
+    GameCharacter enemy = new Enemy("Bad person", 100, 15, 5, mainQueue, 6);
     characters.add(enemy);
   
     // We create all the weapon types in order to test their constructors
@@ -199,7 +203,7 @@ public class Main {
     for (int i = 0; i < 6; i++) {
       characters.get(i).addToQueue();
     }
-    Enemy enemy2 = new Enemy("Ugly person", 98, 13, 4, mainQueue);
+    Enemy enemy2 = new Enemy("Ugly person", 98, 13, 4, mainQueue, 6);
     System.out.println("Characters in queue:");
     while (!mainQueue.isEmpty()) {
       // Pops and prints the names of the characters of the queue to illustrate the turns
@@ -208,11 +212,47 @@ public class Main {
     }
     
     System.out.println("-------------");
-  
-  
-    System.out.println("(12) Testing getMaxMp() for both mages");
-      System.out.println("1. Testing for " + blackMage.getClass().getSimpleName());
-      System.out.println("Max Mp is: " );
     
+    System.out.println("(12) Testing getMaxMp() for both mages");
+    System.out.println("1. Testing for " + blackMage.getClass().getSimpleName());
+    System.out.println("Max Mp is: " + blackMage.getMaxMp());
+    System.out.println("2. Testing for " + whiteMage.getClass().getSimpleName());
+    System.out.println("Max Mp is: " + whiteMage.getMaxMp());
+  
+    System.out.println("-------------");
+  
+    System.out.println("(13) Testing getCurrentMp() for both mages");
+    System.out.println("1. Testing for " + blackMage.getClass().getSimpleName());
+    System.out.println("Max Mp is: " + blackMage.getCurrentMp());
+    System.out.println("2. Testing for " + whiteMage.getClass().getSimpleName());
+    System.out.println("Max Mp is: " + whiteMage.getCurrentMp());
+  
+    System.out.println("-------------");
+  
+    System.out.println("(14) Testing setCurrentMp() for both mages");
+    System.out.println("1. Testing for " + blackMage.getClass().getSimpleName());
+    blackMage.setCurrentHp(6);
+    System.out.println("CurrentMp was set at 6");
+    System.out.println("Current Mp is: " + blackMage.getCurrentMp());
+    System.out.println("2. Testing for " + whiteMage.getClass().getSimpleName());
+    blackMage.setCurrentHp(7);
+    System.out.println("CurrentMp was set at 7");
+    System.out.println("Current Mp is: " + whiteMage.getCurrentMp());
+  
+    System.out.println("-------------");
+  
+    System.out.println("(15) Testing getDamage()");
+    for (int i = 0; i < 5; i++) {
+      System.out.println(i + ". Testing for " + weapons.get(i).getClass().getSimpleName());
+      System.out.println("Damge is: " + weapons.get(i).getDamage());
+    }
+  
+    System.out.println("(16) Testing getWeight()");
+    for (int i = 0; i < 5; i++) {
+      System.out.println(i + ". Testing for " + weapons.get(i).getClass().getSimpleName());
+      System.out.println("Weight is: " + weapons.get(i).getWeight());
+    }
+  
+  
   }
 }

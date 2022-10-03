@@ -25,6 +25,7 @@ public abstract class AbstractMage extends AbstractPlayerCharacter {
 
   protected int currentMp;
   protected final int maxMp;
+  
   protected AbstractMage(final @NotNull String name, final int maxHp, final int defense,
                          int maxMp, final @NotNull BlockingQueue<GameCharacter> turnsQueue)
         throws InvalidStatValueException {
@@ -56,7 +57,7 @@ public abstract class AbstractMage extends AbstractPlayerCharacter {
    * Returns the character's max MP.
    */
   public int getMaxMp() {
-    return maxMp;
+    return this.maxMp;
   }
   // endregion
   

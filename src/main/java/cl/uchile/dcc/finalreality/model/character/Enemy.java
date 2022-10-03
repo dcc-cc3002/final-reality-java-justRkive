@@ -6,7 +6,6 @@ import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -16,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
  * @author Katia
  */
 public class Enemy extends AbstractCharacter {
+  protected final int damage;
 
   private final int weight;
 
@@ -24,9 +24,10 @@ public class Enemy extends AbstractCharacter {
    * play.
    */
   public Enemy(@NotNull final String name, final int weight, int maxHp, int defense,
-      @NotNull final BlockingQueue<GameCharacter> turnsQueue)
+               @NotNull final BlockingQueue<GameCharacter> turnsQueue, int damage)
       throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
+    this.damage = damage;
     Require.statValueAtLeast(1, weight, "Weight");
     this.weight = weight;
   }
@@ -74,5 +75,4 @@ public class Enemy extends AbstractCharacter {
           /* delay = */ this.getWeight() / 10,
           /* unit = */ TimeUnit.SECONDS);
   }
-  
-  }
+}
