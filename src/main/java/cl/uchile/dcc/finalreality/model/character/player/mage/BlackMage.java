@@ -24,10 +24,7 @@ import org.jetbrains.annotations.NotNull;
  * @version 2.0
  */
 public class BlackMage extends AbstractMage {
-
-  private int currentMp;
-  private final int maxMp;
-
+  
   /**
    * Creates a new Black Mage.
    *
@@ -43,10 +40,7 @@ public class BlackMage extends AbstractMage {
   public BlackMage(final @NotNull String name, final int maxHp, final int defense,
       int maxMp, final @NotNull BlockingQueue<GameCharacter> turnsQueue)
       throws InvalidStatValueException {
-    super(name, maxHp, defense, turnsQueue);
-    Require.statValueAtLeast(0, maxMp, "Max MP");
-    this.maxMp = maxMp;
-    this.currentMp = maxMp;
+    super(name, maxHp, defense, maxMp, turnsQueue);
   }
 
   // region : ACCESSORS

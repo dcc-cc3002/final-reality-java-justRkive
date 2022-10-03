@@ -185,7 +185,7 @@ public class Main {
       characters.get(i).waitTurn();
     }
     // Waits for 10 seconds to ensure that all characters have finished waiting
-    Thread.sleep(10000);
+    Thread.sleep(20000);
     System.out.println("Characters in queue:");
     while (!mainQueue.isEmpty()) {
       // Pops and prints the names of the characters of the queue to illustrate the turns
@@ -194,11 +194,19 @@ public class Main {
     }
   
     System.out.println("---------------------------------------");
-  
+    
     System.out.println("(11) Testing addToQueue() for every character");
     for (int i = 0; i < 6; i++) {
       characters.get(i).addToQueue();
     }
+    Enemy enemy2 = new Enemy("Ugly person", 98, 13, 4, mainQueue);
+    System.out.println("Characters in queue:");
+    while (!mainQueue.isEmpty()) {
+      // Pops and prints the names of the characters of the queue to illustrate the turns
+      // order
+      System.out.println(mainQueue.poll().toString());
+    }
+    
     System.out.println("-------------");
 
     System.out.println("(3) Testing waitTurn() for every character");

@@ -1,6 +1,7 @@
 package cl.uchile.dcc.finalreality.model.character.player.mage;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
+import cl.uchile.dcc.finalreality.exceptions.Require;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.character.player.AbstractPlayerCharacter;
 import java.util.concurrent.BlockingQueue;
@@ -21,9 +22,15 @@ public abstract class AbstractMage extends AbstractPlayerCharacter {
    * @param defense    the character's defense
    * @param turnsQueue the queue with the characters waiting for their turn
    */
-  protected AbstractMage(@NotNull String name, int maxHp, int defense,
-                         @NotNull BlockingQueue<GameCharacter> turnsQueue)
+
+  protected int currentMp;
+  protected final int maxMp;
+  protected AbstractMage(final @NotNull String name, final int maxHp, final int defense,
+                         int maxMp, final @NotNull BlockingQueue<GameCharacter> turnsQueue)
         throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
+    Require.statValueAtLeast(0, maxMp, "Max MP");
+    this.maxMp = maxMp;
+    this.currentMp = maxMp;
   }
 }

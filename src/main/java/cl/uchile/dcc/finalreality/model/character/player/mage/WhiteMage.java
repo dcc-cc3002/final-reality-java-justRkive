@@ -24,9 +24,7 @@ import org.jetbrains.annotations.NotNull;
  * @author Katia
  */
 public class WhiteMage extends AbstractMage {
-
-  private int currentMp;
-  private final int maxMp;
+  
 
   /**
    * Creates a new character.
@@ -43,9 +41,7 @@ public class WhiteMage extends AbstractMage {
   public WhiteMage(final @NotNull String name, final int maxHp, final int defense,
       int maxMp, final @NotNull BlockingQueue<GameCharacter> turnsQueue)
       throws InvalidStatValueException {
-    super(name, maxHp, defense, turnsQueue);
-    this.maxMp = maxMp;
-    this.currentMp = maxMp;
+    super(name, maxHp, defense, maxMp, turnsQueue);
   }
 
   @Override
