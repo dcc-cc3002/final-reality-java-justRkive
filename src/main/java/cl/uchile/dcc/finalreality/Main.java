@@ -209,10 +209,6 @@ public class Main {
     
     System.out.println("-------------");
 
-    System.out.println("(3) Testing waitTurn() for every character");
-    for (int i = 0; i < 6; i++) {
-      System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
-      
-    }
+    
   }
 }

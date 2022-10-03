@@ -70,26 +70,26 @@ public class WhiteMage extends AbstractMage {
         .formatted(currentMp, maxMp, maxHp, defense, name);
   }
 
-  /**
-   * Returns the current MP of the character.
-   */
-  public int getCurrentMp() {
-    return currentMp;
-  }
-
-  /**
-   * Sets the current MP of the character to {@code newMp}.
-   */
-  public void setCurrentMp(final int newMp) throws InvalidStatValueException {
-    Require.statValueAtLeast(0, newMp, "Current MP");
-    Require.statValueAtMost(maxMp, newMp, "Current MP");
-    this.currentMp = newMp;
-  }
-
-  /**
-   * Returns the max MP of the character.
-   */
-  public int getMaxMp() {
-    return maxMp;
-  }
+//  /**
+//   * Returns the current MP of the character.
+//   */
+//  public int getCurrentMp() {
+//    return currentMp;
+//  }
+//
+//  /**
+//   * Sets the current MP of the character to {@code newMp}.
+//   */
+//  public void setCurrentMp(final int newMp) throws InvalidStatValueException {
+//    Require.statValueAtLeast(0, newMp, "Current MP");
+//    Require.statValueAtMost(maxMp, newMp, "Current MP");
+//    this.currentMp = newMp;
+//  }
+//
+//  /**
+//   * Returns the max MP of the character.
+//   */
+//  public int getMaxMp() {
+//    return maxMp;
+//  }
 }
