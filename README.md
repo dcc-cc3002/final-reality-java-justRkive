@@ -35,7 +35,10 @@ In order to play the game Final Fantasy, you need to follow certain turns. Those
 be managed by a scheduler. To see the functioning of the scheduler, you can also
 run the class "TimerExample".
 
-This program was made under the assumptions...
+This program only shows the model of the project, which shows the relations
+between classes, but it doesn't implement any of the methods and the restrictions
+related to which weapon can be equipped to which character are not considered, 
+ with the purpose of showing the functionality of the program.
 
 ---
 Functioning and logic of the program

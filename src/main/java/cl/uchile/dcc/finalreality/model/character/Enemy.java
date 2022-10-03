@@ -4,6 +4,9 @@ import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.exceptions.Require;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -62,4 +65,14 @@ public class Enemy extends AbstractCharacter {
 
 
   }
-}
+  
+  @Override
+  public void waitTurn() {
+    this.scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+    this.scheduledExecutor.schedule(
+          /* command = */ this::addToQueue,
+          /* delay = */ this.getWeight() / 10,
+          /* unit = */ TimeUnit.SECONDS);
+  }
+  
+  }

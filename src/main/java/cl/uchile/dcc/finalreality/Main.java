@@ -166,11 +166,17 @@ public class Main {
     System.out.println("(8) Testing equip() for every player character");
     for (int i = 0; i < 5; i++) {
       System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
-//      System.out.println("Current Hp is: " + characters.get(i).getCurrentHp());
-      party.get(i).equip(axe0);
+      party.get(i).equip(weapons.get(i));
     }
   
+    System.out.println("---------------------------------------");
   
+    System.out.println("(9) Testing getEquippedWeapon() for every player character");
+    for (int i = 0; i < 5; i++) {
+      System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
+      System.out.println("The equipped weapon is: " + party.get(i).getEquippedWeapon());
+      
+    }
   
     System.out.println("-------------");
 
