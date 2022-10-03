@@ -208,7 +208,11 @@ public class Main {
     }
     
     System.out.println("-------------");
-
+  
+  
+    System.out.println("(12) Testing getMaxMp() for both mages");
+      System.out.println("1. Testing for " + blackMage.getClass().getSimpleName());
+      System.out.println("Max Mp is: " );
     
   }
 }
