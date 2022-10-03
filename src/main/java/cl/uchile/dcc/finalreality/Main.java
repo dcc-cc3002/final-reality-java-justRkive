@@ -32,7 +32,7 @@ public class Main {
     Random rng = new Random();
     
     // We create all the characters in order to test their constructors
-    List<GameCharacter> party = new ArrayList<GameCharacter>();
+    List<PlayerCharacter> party = new ArrayList<PlayerCharacter>();
     PlayerCharacter engineer = new Engineer("Engineer person", 10, 5, mainQueue);
     party.add(engineer);
     PlayerCharacter blackMage = new BlackMage("BlackMage person", 11, 6, 20, mainQueue);
@@ -43,8 +43,11 @@ public class Main {
     party.add(thief);
     PlayerCharacter whiteMage = new WhiteMage("WhiteMage person", 6, 11, 19, mainQueue);
     party.add(whiteMage);
+   
+    // We create another list with all the characters including enemy
+    List<GameCharacter> characters = new ArrayList<GameCharacter>(party);
     GameCharacter enemy = new Enemy("Bad person", 100, 15, 5, mainQueue);
-    party.add(enemy);
+    characters.add(enemy);
   
     // We create all the weapon types in order to test their constructors
     List<Weapon> weapons = new ArrayList<Weapon>();
@@ -58,33 +61,37 @@ public class Main {
     weapons.add(staff0);
     Sword sword0 = new Sword("Espadita", 15, 250);
     weapons.add(sword0);
-
   
+    System.out.println(party.toString());
+    System.out.println(characters.toString());
+    System.out.println(weapons.toString());
+    
     System.out.println("(1) Testing toString functionality for every character and weapon created");
     for (int i = 0; i < 6; i++) {
-      System.out.println(party.get(i).toString());
+      System.out.println(characters.get(i).toString());
     }
     System.out.println("---");
     for (int i = 0; i < 5; i++) {
       System.out.println(weapons.get(i).toString());
     }
-    System.out.println("-------------");
+    
+    System.out.println("---------------------------------------");
   
     System.out.println("(2) Testing equals and hascode functionality");
     System.out.println("CHARACTERS ---");
     for (int i = 0; i < 6; i++) {
-      System.out.println(i + ". Testing for " + party.get(i).getClass().getSimpleName());
+      System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
       System.out.println("equals True Case:");
-      System.out.println(party.get(i).equals(party.get(i)));
+      System.out.println(characters.get(i).equals(characters.get(i)));
       System.out.println("---");
       System.out.println("hashCode True Case:");
-      System.out.println(party.get(i).hashCode() == party.get(i).hashCode());
+      System.out.println(characters.get(i).hashCode() == characters.get(i).hashCode());
       System.out.println("---");
       System.out.println("equals False Case:");
       if (i < 5) {
-        System.out.println(party.get(i).equals(party.get(i + 1)));
+        System.out.println(characters.get(i).equals(characters.get(i + 1)));
       } else {
-        System.out.println(party.get(i).equals(party.get(0)));
+        System.out.println(characters.get(i).equals(characters.get(0)));
       }
     }
     System.out.println("---");
@@ -105,13 +112,13 @@ public class Main {
       }
     }
   
-    System.out.println("-------------");
+    System.out.println("---------------------------------------");
   
     System.out.println("(3) Testing getName() for every character and weapon");
     System.out.println("CHARACTERS ---");
     for (int i = 0; i < 6; i++) {
-      System.out.println(i + ". Testing for " + party.get(i).getClass().getSimpleName());
-      System.out.println("Name is: " + party.get(i).getName());
+      System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
+      System.out.println("Name is: " + characters.get(i).getName());
     }
     System.out.println("---");
     System.out.println("WEAPONS---");
@@ -119,44 +126,49 @@ public class Main {
       System.out.println(i + ". Testing for " + weapons.get(i).getClass().getSimpleName());
       System.out.println("Name is: " + weapons.get(i).getName());
     }
-    System.out.println("-------------");
+    
+    System.out.println("---------------------------------------");
     
     System.out.println("(4) Testing getMaxHp() for every character");
     for (int i = 0; i < 6; i++) {
-      System.out.println(i + ". Testing for " + party.get(i).getClass().getSimpleName());
-      System.out.println("Max Hp is: " + party.get(i).getMaxHp());
+      System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
+      System.out.println("Max Hp is: " + characters.get(i).getMaxHp());
     }
-    System.out.println("-------------");
-  
-  
+    
+    System.out.println("---------------------------------------");
+    
     System.out.println("(5) Testing getCurrentHp() for every character");
     for (int i = 0; i < 6; i++) {
-      System.out.println(i + ". Testing for " + party.get(i).getClass().getSimpleName());
-      System.out.println("Current Hp is: " + party.get(i).getCurrentHp());
+      System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
+      System.out.println("Current Hp is: " + characters.get(i).getCurrentHp());
     }
-    System.out.println("-------------");
-  
-  
+    
+    System.out.println("---------------------------------------");
+    
     System.out.println("(6) Testing setCurrentHp() for every character");
     for (int i = 0; i < 6; i++) {
-      System.out.println(i + ". Testing for " + party.get(i).getClass().getSimpleName());
-      party.get(i).setCurrentHp(5);
+      System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
+      characters.get(i).setCurrentHp(5);
       System.out.println("CurrentHp was set at 5");
-      System.out.println("Current Hp is: " + party.get(i).getCurrentHp());
+      System.out.println("Current Hp is: " + characters.get(i).getCurrentHp());
     }
-    System.out.println("-------------");
-  
-  
+    
+    System.out.println("---------------------------------------");
+    
     System.out.println("(7) Testing getDefense() for every character");
     for (int i = 0; i < 6; i++) {
-      System.out.println(i + ". Testing for " + party.get(i).getClass().getSimpleName());
-      System.out.println("Defense is: " + party.get(i).getDefense());
+      System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
+      System.out.println("Defense is: " + characters.get(i).getDefense());
     }
-    System.out.println("-------------");
-  
-  
-    System.out.println("(8) Testing equip() for every character");
-  
+    
+    System.out.println("---------------------------------------");
+    
+    System.out.println("(8) Testing equip() for every player character");
+    for (int i = 0; i < 5; i++) {
+      System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
+//      System.out.println("Current Hp is: " + characters.get(i).getCurrentHp());
+      party.get(i).equip(axe0);
+    }
   
   
   
@@ -164,7 +176,7 @@ public class Main {
 
     System.out.println("(3) Testing waitTurn() for every character");
     for (int i = 0; i < 6; i++) {
-      System.out.println(i + ". Testing for " + party.get(i).getClass().getSimpleName());
+      System.out.println(i + ". Testing for " + characters.get(i).getClass().getSimpleName());
       
     }
   }
