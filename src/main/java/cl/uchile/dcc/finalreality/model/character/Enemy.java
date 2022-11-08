@@ -49,20 +49,21 @@ public class Enemy extends AbstractCharacter {
     }
     return hashCode() == enemy.hashCode()
         && name.equals(enemy.name)
-        && weight == enemy.weight
-        && maxHp == enemy.maxHp
-        && defense == enemy.defense;
+          && weight == enemy.weight
+          && maxHp == enemy.maxHp
+          && damage == enemy.damage
+          && defense == enemy.defense;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Enemy.class, name, weight, maxHp, defense);
+    return Objects.hash(Enemy.class, name, weight, maxHp, defense, damage);
   }
 
   @Override
   public String toString() {
-    return "Enemy{weight=%d, maxHp=%d, defense=%d, name='%s'}"
-            .formatted(weight, maxHp, defense, name);
+    return "Enemy{weight=%d, maxHp=%d, defense=%d, damage=%d, name='%s'}"
+            .formatted(weight, maxHp, defense, damage, name);
 
 
   }
