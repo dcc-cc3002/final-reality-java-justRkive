@@ -19,51 +19,99 @@ import java.util.concurrent.LinkedBlockingQueue;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AbstractCharacterTest {
+  Engineer engineer;
+  BlackMage blackMage;
+  Knight knight;
+  Thief thief;
+  WhiteMage whiteMage;
+  Enemy enemy;
+  
   BlockingQueue<GameCharacter> testQueue = new LinkedBlockingQueue<>();
-  List<PlayerCharacter> party = new ArrayList<PlayerCharacter>();
-  
-  
-  
+  List<GameCharacter> party = new ArrayList<GameCharacter>();
+  String[] names = {"Engineer person", "BlackMage person", "Knight person",
+        "Thief person", "WhiteMage person", "Bad person"};
+  int[] MaxHps = {10, 11, 11, 10, 6, 15};
+  int[] defenses = {5, 6, 15, 7, 11, 5};
   
   @BeforeEach
   void setUp() throws InvalidStatValueException {
-    PlayerCharacter engineer = new Engineer("Engineer person", 10, 5, testQueue);
+    engineer = new Engineer(names[0], MaxHps[0], defenses[0], testQueue);
     party.add(engineer);
-    BlackMage blackMage = new BlackMage("BlackMage person", 11, 6, 20, testQueue);
+    blackMage = new BlackMage(names[1], MaxHps[1], defenses[1], 20, testQueue);
     party.add(blackMage);
-    PlayerCharacter knight = new Knight("Knight person", 11, 15, testQueue);
+    knight = new Knight(names[2], MaxHps[2], defenses[2], testQueue);
     party.add(knight);
-    PlayerCharacter thief = new Thief("Thief person", 10, 7, testQueue);
+    thief = new Thief(names[3], MaxHps[3], defenses[3], testQueue);
     party.add(thief);
-    WhiteMage whiteMage = new WhiteMage("WhiteMage person", 6, 11, 19, testQueue);
+    whiteMage = new WhiteMage(names[4], MaxHps[4], defenses[4], 19, testQueue);
     party.add(whiteMage);
-  }
+    enemy = new Enemy(names[5], 100, MaxHps[5], defenses[5], testQueue, 6);
+    party.add(enemy);
   
-  @AfterEach
-  void tearDown() {
-  }
-  
-  @Test
-  void addToQueue() {
   }
   
   @Test
-  void getName() {
+  void addToQueueTest() {
+    /*engineer.addToQueue();
+    blackMage.addToQueue();
+    knight.addToQueue();
+    thief.addToQueue();
+    whiteMage.addToQueue();
+    enemy.addToQueue();*/
+    /*while (!testQueue.isEmpty()) {
+      // Pops and prints the names of the characters of the queue to illustrate the turns
+      // order
+      System.out.println(testQueue.poll().toString());
+    }*/
   }
   
   @Test
-  void getCurrentHp() {
+  void getNameTest() {
+    String[] expectNames = {"Engineer person", "BlackMage person", "Knight person",
+          "Thief person", "WhiteMage person", "Bad person"};
+    for (int i = 0; i < 6; i++) {
+      assertEquals(expectNames[i], party.get(i).getName());
+    }
+    
   }
   
   @Test
-  void getMaxHp() {
+  void getCurrentHpTest() throws InvalidStatValueException {
+    int[] expectHps = {10, 11, 11, 10, 6, 15};
+    for (int i = 0; i < 6; i++) {
+      // Hp inicial: maxHp
+      assertEquals(expectHps[i], party.get(i).getCurrentHp());
+      // Set Hp en i
+      party.get(i).setCurrentHp(i);
+      assertEquals(i, party.get(i).getCurrentHp());
+    }
   }
   
   @Test
-  void getDefense() {
+  void getMaxHpTest() throws InvalidStatValueException {
+    int[] expectMaxHps = {10, 11, 11, 10, 6, 15};
+    for (int i = 0; i < 6; i++) {
+      assertEquals(expectMaxHps[i], party.get(i).getMaxHp());
+    }
+  
   }
   
   @Test
-  void setCurrentHp() {
+  void getDefenseTest() {
+    int[] expectDef = {5, 6, 15, 7, 11, 5};
+    for (int i = 0; i < 6; i++) {
+      assertEquals(expectDef[i], party.get(i).getDefense());
+    }
+  }
+  
+  @Test
+  void setCurrentHpTest() throws InvalidStatValueException {
+    int[] expectHps = {6, 8, 10, 7, 1, 14};
+    for (int i = 0; i < 6; i++) {
+      party.get(i).setCurrentHp(expectHps[i]);
+      assertEquals(expectHps[i], party.get(i).getCurrentHp());
+    }
+    
+    
   }
 }

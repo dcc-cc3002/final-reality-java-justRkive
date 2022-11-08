@@ -36,6 +36,7 @@ public class EnemyTest {
     assertNotEquals(expectedEnemy0.hashCode(), enemy1.hashCode());
   }
   
+  
   @Test
   void testToString() {
     String expectedStr = "Enemy{weight=100, maxHp=15, defense=5, damage=6, name='Bad person'}";
