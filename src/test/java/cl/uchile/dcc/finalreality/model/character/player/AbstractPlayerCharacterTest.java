@@ -17,12 +17,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AbstractPlayerCharacterTest {
-  Engineer engineer;
-  BlackMage blackMage;
-  Knight knight;
-  Thief thief;
-  WhiteMage whiteMage;
-  Enemy enemy;
+  private Engineer engineer;
+  private BlackMage blackMage;
+  private Knight knight;
+  private Thief thief;
+  private WhiteMage whiteMage;
+  private Enemy enemy;
   BlockingQueue<GameCharacter> testQueue = new LinkedBlockingQueue<>();
   List<PlayerCharacter> party = new ArrayList<PlayerCharacter>();
   String[] names = {"Engineer person", "BlackMage person", "Knight person",
