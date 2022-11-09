@@ -32,7 +32,10 @@ public class EngineerTest {
   @Test
   void testEquals() throws InvalidStatValueException {
     var expectEng0 = new Engineer("Engineer person", 10, 5, testQueue);
+    var expectThief = new Thief("Thief person", 10, 7, testQueue);
     assertEquals(expectEng0, engineer0);
+    assertEquals(engineer0, engineer0);
+    assertNotEquals(expectThief, expectEng0);
     assertNotEquals(expectEng0, engineer1);
     assertEquals(expectEng0.hashCode(), engineer0.hashCode());
     assertNotEquals(expectEng0.hashCode(), engineer1.hashCode());

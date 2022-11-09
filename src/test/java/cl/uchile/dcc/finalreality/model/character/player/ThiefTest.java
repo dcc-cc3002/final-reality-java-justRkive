@@ -31,7 +31,10 @@ public class ThiefTest {
   @Test
   void testEquals() throws InvalidStatValueException {
     var expectThief = new Thief("Thief person", 10, 7, testQueue);
+    var expectKnigh = new Knight("Meta Knight", 11, 15, testQueue);
+    assertEquals(thief0, thief0);
     assertEquals(expectThief, thief0);
+    assertNotEquals(expectKnigh, thief0);
     assertNotEquals(expectThief, thief1);
     assertEquals(expectThief.hashCode(), thief0.hashCode());
     assertNotEquals(expectThief.hashCode(), thief1.hashCode());

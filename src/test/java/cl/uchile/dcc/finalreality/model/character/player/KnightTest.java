@@ -31,7 +31,10 @@ public class KnightTest {
   @Test
   void testEquals() throws InvalidStatValueException {
     var expectKnigh = new Knight("Knight person", 11, 15, testQueue);
+    var expectEng0 = new Engineer("Engineer person", 10, 5, testQueue);
     assertEquals(expectKnigh, knight0);
+    assertEquals(knight0, knight0);
+    assertNotEquals(expectEng0, expectKnigh);
     assertNotEquals(expectKnigh, knight2);
     assertEquals(expectKnigh.hashCode(), knight0.hashCode());
     assertNotEquals(expectKnigh.hashCode(), knight2.hashCode());
