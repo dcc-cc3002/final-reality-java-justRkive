@@ -1,6 +1,7 @@
 package cl.uchile.dcc.finalreality.model.character;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
+import cl.uchile.dcc.finalreality.model.character.player.Knight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -30,8 +31,12 @@ public class EnemyTest {
   @Test
   void testEquals() throws InvalidStatValueException {
     var expectedEnemy0 = new Enemy("Bad person", 100, 15, 5, testQueue, 6);
+    var expectKnigh = new Knight("Meta Knight", 11, 15, testQueue);
+    assertEquals(enemy0, enemy0);
+    assertNotEquals(expectKnigh, enemy0);
     assertEquals(expectedEnemy0, enemy0);
     assertNotEquals(expectedEnemy0, enemy1);
+    assertNotEquals(expectedEnemy0, expectKnigh);
     assertEquals(expectedEnemy0.hashCode(), enemy0.hashCode());
     assertNotEquals(expectedEnemy0.hashCode(), enemy1.hashCode());
   }
@@ -45,6 +50,13 @@ public class EnemyTest {
   
   @Test
   void waitTurnTest() {
+  
+  }
+  
+  @Test
+  void getWeightTest() {
+    assertEquals(100, enemy0.getWeight());
+    assertEquals(98, enemy1.getWeight());
   
   }
 }

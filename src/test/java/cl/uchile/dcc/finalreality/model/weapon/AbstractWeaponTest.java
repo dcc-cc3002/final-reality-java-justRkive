@@ -12,10 +12,6 @@ class AbstractWeaponTest {
   void setUp() {
   }
   
-  @AfterEach
-  void tearDown() {
-  }
-  
   @Test
   void getName() {
   }

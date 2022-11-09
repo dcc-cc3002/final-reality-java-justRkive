@@ -25,7 +25,7 @@ public class Knife extends AbstractWeapon {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof final AbstractWeapon weapon)) {
+    if (!(o instanceof final Knife weapon)) {
       return false;
     }
     return hashCode() == weapon.hashCode()

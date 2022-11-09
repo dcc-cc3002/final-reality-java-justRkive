@@ -25,7 +25,7 @@ public class Staff extends AbstractWeapon {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof final AbstractWeapon weapon)) {
+    if (!(o instanceof final Staff weapon)) {
       return false;
     }
     return hashCode() == weapon.hashCode()

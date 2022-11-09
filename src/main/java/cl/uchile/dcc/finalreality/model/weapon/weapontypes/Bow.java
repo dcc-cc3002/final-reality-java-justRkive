@@ -25,7 +25,7 @@ public class Bow extends AbstractWeapon {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof final AbstractWeapon weapon)) {
+    if (!(o instanceof final Bow weapon)) {
       return false;
     }
     return hashCode() == weapon.hashCode()

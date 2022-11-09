@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 public class Enemy extends AbstractCharacter {
   protected final int damage;
 
-  private final int weight;
+  protected final int weight;
 
   /**
    * Creates a new enemy with a name, a weight and the queue with the characters ready to
