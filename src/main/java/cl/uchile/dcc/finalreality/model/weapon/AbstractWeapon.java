@@ -1,5 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
+import cl.uchile.dcc.finalreality.model.character.player.Knight;
+
 /**
  * A class that holds all the information of a weapon.
  *
@@ -35,6 +37,11 @@ public abstract class AbstractWeapon implements Weapon {
   public int getWeight() {
     return weight;
   }
-
-
+  
+  @Override
+  public void equipToKnight(Knight knight) {
+  
+  }
+  
+  
 }

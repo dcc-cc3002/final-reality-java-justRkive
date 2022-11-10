@@ -15,6 +15,8 @@ import cl.uchile.dcc.finalreality.model.character.player.AbstractPlayerCharacter
 import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.*;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -69,5 +71,29 @@ public class WhiteMage extends AbstractMage {
     return "WhiteMage{maxHp=%d, defense=%d, maxMp=%d, name='%s'}"
           .formatted(maxHp, defense, maxMp, name);
   }
-
+  
+  @Override
+  public void equipAxe(Axe axe) {
+  
+  }
+  
+  @Override
+  public void equipBow(Bow bow) {
+  
+  }
+  
+  @Override
+  public void equipKnife(Knife knife) {
+  
+  }
+  
+  @Override
+  public void equipStaff(Staff staff) {
+    this.equippedWeapon = staff;
+  }
+  
+  @Override
+  public void equipSword(Sword sword) {
+  
+  }
 }

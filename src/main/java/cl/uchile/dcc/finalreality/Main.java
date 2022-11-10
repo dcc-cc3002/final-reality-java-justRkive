@@ -61,7 +61,7 @@ public class Main {
     weapons.add(bow0);
     Knife knife0 = new Knife("Cuchillo", 7, 30);
     weapons.add(knife0);
-    Staff staff0 = new Staff("Varita mágica", 10, 37);
+    Staff staff0 = new Staff("Baston", 10, 37);
     weapons.add(staff0);
     Sword sword0 = new Sword("Espadita", 15, 250);
     weapons.add(sword0);

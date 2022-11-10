@@ -12,6 +12,8 @@ import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.*;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -64,5 +66,30 @@ public class Thief extends AbstractPlayerCharacter {
   @Override
   public String toString() {
     return "Thief{maxHp=%d, defense=%d, name='%s'}".formatted(maxHp, defense, name);
+  }
+  
+  @Override
+  public void equipAxe(Axe axe) {
+  
+  }
+  
+  @Override
+  public void equipBow(Bow bow) {
+    this.equippedWeapon = bow;
+  }
+  
+  @Override
+  public void equipKnife(Knife knife) {
+    this.equippedWeapon = knife;
+  }
+  
+  @Override
+  public void equipStaff(Staff staff) {
+  
+  }
+  
+  @Override
+  public void equipSword(Sword sword) {
+    this.equippedWeapon = sword;
   }
 }

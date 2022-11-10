@@ -31,7 +31,7 @@ import org.jetbrains.annotations.NotNull;
 public abstract class AbstractPlayerCharacter extends AbstractCharacter implements
     PlayerCharacter {
 
-  private Weapon equippedWeapon = null;
+  protected Weapon equippedWeapon = null;
 
   /**
    * Creates a new character.
@@ -55,7 +55,6 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
   @Override
   public void equip(Weapon weapon) {
     this.equippedWeapon = weapon;
-    System.out.println(weapon.getName() + " was equipped");
   }
 
   @Override

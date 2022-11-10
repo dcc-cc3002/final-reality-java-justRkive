@@ -14,6 +14,8 @@ import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.character.player.AbstractPlayerCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.*;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -69,6 +71,31 @@ public class BlackMage extends AbstractMage {
   @Override
   public int hashCode() {
     return Objects.hash(BlackMage.class, name, maxHp, defense, maxMp);
+  }
+  
+  @Override
+  public void equipAxe(Axe axe) {
+  
+  }
+  
+  @Override
+  public void equipBow(Bow bow) {
+  
+  }
+  
+  @Override
+  public void equipKnife(Knife knife) {
+    this.equippedWeapon = knife;
+  }
+  
+  @Override
+  public void equipStaff(Staff staff) {
+    this.equippedWeapon = staff;
+  }
+  
+  @Override
+  public void equipSword(Sword sword) {
+  
   }
   // endregion
 }

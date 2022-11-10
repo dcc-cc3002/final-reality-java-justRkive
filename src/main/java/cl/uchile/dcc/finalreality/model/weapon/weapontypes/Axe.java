@@ -1,6 +1,11 @@
 package cl.uchile.dcc.finalreality.model.weapon.weapontypes;
 
+import cl.uchile.dcc.finalreality.model.character.player.Engineer;
+import cl.uchile.dcc.finalreality.model.character.player.Knight;
 import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
+import cl.uchile.dcc.finalreality.model.character.player.Thief;
+import cl.uchile.dcc.finalreality.model.character.player.mage.BlackMage;
+import cl.uchile.dcc.finalreality.model.character.player.mage.WhiteMage;
 import cl.uchile.dcc.finalreality.model.weapon.AbstractWeapon;
 import java.util.Objects;
 
@@ -44,5 +49,30 @@ public class Axe extends AbstractWeapon {
   public String toString() {
     return "Axe{name='%s', damage=%d, weight=%d}"
           .formatted(name, damage, weight);
+  }
+  
+  @Override
+  public void equipToKnight(Knight knight) {
+    knight.equipAxe(this);
+  }
+  
+  @Override
+  public void equipToEngineer(Engineer engineer) {
+    engineer.equipAxe(this);
+  }
+  
+  @Override
+  public void equipToThief(Thief thief) {
+  
+  }
+  
+  @Override
+  public void equipToBlackMage(BlackMage blackMage) {
+  
+  }
+  
+  @Override
+  public void equipToWhiteMage(WhiteMage whiteMage) {
+  
   }
 }
