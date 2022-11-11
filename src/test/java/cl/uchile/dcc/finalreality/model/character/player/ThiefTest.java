@@ -20,6 +20,7 @@ public class ThiefTest {
   private Thief thief1;
   BlockingQueue<GameCharacter> testQueue = new LinkedBlockingQueue<>();
   List<Weapon> weapons = new ArrayList<Weapon>();
+  List<Weapon> notAllowed = new ArrayList<Weapon>();
   
   @BeforeEach
   void setUp() throws InvalidStatValueException {
@@ -27,11 +28,13 @@ public class ThiefTest {
     thief1 = new Thief("Mark", 18, 3, testQueue);
   
     Axe axe0 = new Axe("Hacha fea", 13, 300);
+    notAllowed.add(axe0);
     Bow bow0 = new Bow("Arco", 9, 105);
     weapons.add(bow0);
     Knife knife0 = new Knife("Cuchillo", 7, 30);
     weapons.add(knife0);
     Staff staff0 = new Staff("Baston", 10, 37);
+    notAllowed.add(staff0);
     Sword sword0 = new Sword("Espadita", 15, 250);
     weapons.add(sword0);
   }
@@ -59,6 +62,11 @@ public class ThiefTest {
     for (int i = 0; i < 3; i++) {
       thief0.equip(weapons.get(i));
       assertEquals(weapons.get(i), thief0.getEquippedWeapon());
+    }
+  
+    for (int i = 0; i < 2; i++) {
+      thief0.equip(notAllowed.get(i));
+      assertNotEquals(notAllowed.get(i), thief0.getEquippedWeapon());
     }
   }
   

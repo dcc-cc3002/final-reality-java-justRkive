@@ -13,10 +13,14 @@ import cl.uchile.dcc.finalreality.exceptions.Require;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.character.player.AbstractPlayerCharacter;
 import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
+import cl.uchile.dcc.finalreality.model.weapon.Weapon;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Axe;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Bow;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Knife;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Staff;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Sword;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
-
-import cl.uchile.dcc.finalreality.model.weapon.weapontypes.*;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -70,6 +74,11 @@ public class WhiteMage extends AbstractMage {
   public String toString() {
     return "WhiteMage{maxHp=%d, defense=%d, maxMp=%d, name='%s'}"
           .formatted(maxHp, defense, maxMp, name);
+  }
+  
+  @Override
+  public void equip(Weapon weapon) {
+    weapon.equipToWhiteMage(this);
   }
   
   @Override

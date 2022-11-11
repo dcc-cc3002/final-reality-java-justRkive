@@ -16,6 +16,7 @@ class AbstractMageTest {
   private WhiteMage whiteMage;
   BlockingQueue<GameCharacter> testQueue = new LinkedBlockingQueue<>();
   
+  
   @BeforeEach
   void setUp() throws InvalidStatValueException {
     blackMage = new BlackMage("BlackMage person", 11, 6, 20, testQueue);

@@ -13,20 +13,45 @@ import cl.uchile.dcc.finalreality.model.character.player.mage.WhiteMage;
  * @author Katia
  */
 public interface Weapon {
+  
+  /**
+   * Returns this weapon's name.
+   */
   public String getName();
   
+  /**
+   * Returns this weapon's damage.
+   */
   public int getDamage();
   
+  /**
+   * Returns this weapon's weight.
+   */
   public int getWeight();
   
+  /**
+   * Equips weapon to Knight.
+   */
   public void equipToKnight(Knight knight);
   
+  /**
+   * Equips weapon to Engineer.
+   */
   public void equipToEngineer(Engineer engineer);
   
+  /**
+   * Equips weapon to Thief.
+   */
   public void equipToThief(Thief thief);
   
+  /**
+   * Equips weapon to Black Mage.
+   */
   public void equipToBlackMage(BlackMage blackMage);
   
+  /**
+   * Equips weapon to White Mage.
+   */
   public void equipToWhiteMage(WhiteMage whiteMage);
   
 }

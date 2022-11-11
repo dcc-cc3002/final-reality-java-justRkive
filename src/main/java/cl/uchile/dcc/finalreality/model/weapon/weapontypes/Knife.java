@@ -49,6 +49,7 @@ public class Knife extends AbstractWeapon {
     return "Knife{name='%s', damage=%d, weight=%d}"
           .formatted(name, damage, weight);
   }
+  
   @Override
   public void equipToKnight(Knight knight) {
     knight.equipKnife(this);

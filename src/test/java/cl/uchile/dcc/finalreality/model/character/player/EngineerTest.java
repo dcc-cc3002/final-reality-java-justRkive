@@ -21,6 +21,7 @@ public class EngineerTest {
   private Engineer engineer1;
   BlockingQueue<GameCharacter> testQueue = new LinkedBlockingQueue<>();
   List<Weapon> weapons = new ArrayList<Weapon>();
+  List<Weapon> notAllowed = new ArrayList<Weapon>();
   
   
   @BeforeEach
@@ -33,8 +34,12 @@ public class EngineerTest {
     Bow bow0 = new Bow("Arco", 9, 105);
     weapons.add(bow0);
     Knife knife0 = new Knife("Cuchillo", 7, 30);
+    notAllowed.add(knife0);
     Staff staff0 = new Staff("Baston", 10, 37);
+    notAllowed.add(staff0);
     Sword sword0 = new Sword("Espadita", 15, 250);
+    notAllowed.add(sword0);
+  
   }
   
   @Test
@@ -59,6 +64,11 @@ public class EngineerTest {
     for (int i = 0; i < 2; i++) {
       engineer0.equip(weapons.get(i));
       assertEquals(weapons.get(i), engineer0.getEquippedWeapon());
+    }
+  
+    for (int i = 0; i < 3; i++) {
+      engineer0.equip(notAllowed.get(i));
+      assertNotEquals(notAllowed.get(i), engineer0.getEquippedWeapon());
     }
   }
   
