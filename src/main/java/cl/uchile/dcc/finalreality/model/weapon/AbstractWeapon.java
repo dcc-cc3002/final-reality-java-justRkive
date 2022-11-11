@@ -30,17 +30,9 @@ public abstract class AbstractWeapon implements Weapon {
   public int getDamage() {
     return damage;
   }
-
-  /**
-   * Returns the weight of the weapon.
-   */
+  
   public int getWeight() {
     return weight;
-  }
-  
-  @Override
-  public void equipToKnight(Knight knight) {
-  
   }
   
   
