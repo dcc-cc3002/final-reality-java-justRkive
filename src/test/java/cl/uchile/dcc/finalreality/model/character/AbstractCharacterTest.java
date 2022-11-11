@@ -7,12 +7,14 @@ import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import cl.uchile.dcc.finalreality.model.character.player.Thief;
 import cl.uchile.dcc.finalreality.model.character.player.mage.BlackMage;
 import cl.uchile.dcc.finalreality.model.character.player.mage.WhiteMage;
+import cl.uchile.dcc.finalreality.model.weapon.weapontypes.Knife;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -48,21 +50,6 @@ class AbstractCharacterTest {
     enemy = new Enemy(names[5], 100, MaxHps[5], defenses[5], testQueue, 6);
     party.add(enemy);
   
-  }
-  
-  @Test
-  void addToQueueTest() {
-    /*engineer.addToQueue();
-    blackMage.addToQueue();
-    knight.addToQueue();
-    thief.addToQueue();
-    whiteMage.addToQueue();
-    enemy.addToQueue();*/
-    /*while (!testQueue.isEmpty()) {
-      // Pops and prints the names of the characters of the queue to illustrate the turns
-      // order
-      System.out.println(testQueue.poll().toString());
-    }*/
   }
   
   @Test
