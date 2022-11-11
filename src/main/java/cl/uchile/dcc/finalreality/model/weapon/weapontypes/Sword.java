@@ -57,7 +57,7 @@ public class Sword extends AbstractWeapon {
   
   @Override
   public void equipToEngineer(Engineer engineer) {
-  
+    engineer.equipSword(this);
   }
   
   @Override
@@ -67,11 +67,11 @@ public class Sword extends AbstractWeapon {
   
   @Override
   public void equipToBlackMage(BlackMage blackMage) {
-  
+    blackMage.equipSword(this);
   }
   
   @Override
   public void equipToWhiteMage(WhiteMage whiteMage) {
-  
+    whiteMage.equipSword(this);
   }
 }

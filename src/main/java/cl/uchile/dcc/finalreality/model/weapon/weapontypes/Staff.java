@@ -52,16 +52,17 @@ public class Staff extends AbstractWeapon {
   
   @Override
   public void equipToKnight(Knight knight) {
+    knight.equipStaff(this);
   }
   
   @Override
   public void equipToEngineer(Engineer engineer) {
-  
+  engineer.equipStaff(this);
   }
   
   @Override
   public void equipToThief(Thief thief) {
-  
+    thief.equipStaff(this);
   }
   
   @Override

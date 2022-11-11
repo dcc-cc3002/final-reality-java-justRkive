@@ -57,7 +57,7 @@ public class Knife extends AbstractWeapon {
   
   @Override
   public void equipToEngineer(Engineer engineer) {
-  
+    engineer.equipKnife(this);
   }
   
   @Override
@@ -72,6 +72,6 @@ public class Knife extends AbstractWeapon {
   
   @Override
   public void equipToWhiteMage(WhiteMage whiteMage) {
-  
+    whiteMage.equipKnife(this);
   }
 }

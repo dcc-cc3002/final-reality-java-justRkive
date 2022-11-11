@@ -45,14 +45,6 @@ class AbstractPlayerCharacterTest {
   
   
   @Test
-  void equip() {
-  }
-  
-  @Test
-  void getEquippedWeapon() {
-  }
-  
-  @Test
   void waitTurn() {
   }
 }

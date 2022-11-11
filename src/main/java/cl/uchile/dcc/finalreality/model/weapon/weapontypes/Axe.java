@@ -63,16 +63,16 @@ public class Axe extends AbstractWeapon {
   
   @Override
   public void equipToThief(Thief thief) {
-  
+    thief.equipAxe(this);
   }
   
   @Override
   public void equipToBlackMage(BlackMage blackMage) {
-  
+    blackMage.equipAxe(this);
   }
   
   @Override
   public void equipToWhiteMage(WhiteMage whiteMage) {
-  
+    whiteMage.equipAxe(this);
   }
 }

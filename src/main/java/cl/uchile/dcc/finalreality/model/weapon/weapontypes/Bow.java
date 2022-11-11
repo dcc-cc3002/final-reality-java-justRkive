@@ -52,6 +52,7 @@ public class Bow extends AbstractWeapon {
   
   @Override
   public void equipToKnight(Knight knight) {
+    knight.equipBow(this);
   }
   
   @Override
@@ -66,11 +67,11 @@ public class Bow extends AbstractWeapon {
   
   @Override
   public void equipToBlackMage(BlackMage blackMage) {
-  
+    blackMage.equipBow(this);
   }
   
   @Override
   public void equipToWhiteMage(WhiteMage whiteMage) {
-  
+    whiteMage.equipBow(this);
   }
 }
