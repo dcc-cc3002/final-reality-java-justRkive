@@ -1,73 +1,57 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-import java.util.Objects;
+import cl.uchile.dcc.finalreality.model.character.player.Engineer;
+import cl.uchile.dcc.finalreality.model.character.player.Knight;
+import cl.uchile.dcc.finalreality.model.character.player.Thief;
+import cl.uchile.dcc.finalreality.model.character.player.mage.BlackMage;
+import cl.uchile.dcc.finalreality.model.character.player.mage.WhiteMage;
 
 /**
- * A class that holds all the information of a weapon.
+ * This represents the behaviour of a weapon to be equipped by a playable
+ * character.
  *
- * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author Katia
  */
-public class Weapon {
-
-  private final String name;
-  private final int damage;
-  private final int weight;
-  private final WeaponType type;
-
+public interface Weapon {
+  
   /**
-   * Creates a weapon with a name, a base damage, speed, and it's type.
+   * Returns this weapon's name.
    */
-  public Weapon(final String name, final int damage, final int weight,
-      final WeaponType type) {
-    this.name = name;
-    this.damage = damage;
-    this.weight = weight;
-    this.type = type;
-  }
-
-  private String getName() {
-    return name;
-  }
-
-  private int getDamage() {
-    return damage;
-  }
-
+  public String getName();
+  
   /**
-   * Returns the weight of the weapon.
+   * Returns this weapon's damage.
    */
-  public int getWeight() {
-    return weight;
-  }
-
-  private WeaponType getType() {
-    return type;
-  }
-
-  @Override
-  public boolean equals(final Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof final Weapon weapon)) {
-      return false;
-    }
-    return hashCode() == weapon.hashCode()
-        && damage == weapon.damage
-        && weight == weapon.weight
-        && name.equals(weapon.name)
-        && type == weapon.type;
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(Weapon.class, name, damage, weight, type);
-  }
-
-  @Override
-  public String toString() {
-    return "Weapon{name='%s', damage=%d, weight=%d, type=%s}"
-        .formatted(name, damage, weight, type);
-  }
+  public int getDamage();
+  
+  /**
+   * Returns this weapon's weight.
+   */
+  public int getWeight();
+  
+  /**
+   * Equips weapon to Knight.
+   */
+  public void equipToKnight(Knight knight);
+  
+  /**
+   * Equips weapon to Engineer.
+   */
+  public void equipToEngineer(Engineer engineer);
+  
+  /**
+   * Equips weapon to Thief.
+   */
+  public void equipToThief(Thief thief);
+  
+  /**
+   * Equips weapon to Black Mage.
+   */
+  public void equipToBlackMage(BlackMage blackMage);
+  
+  /**
+   * Equips weapon to White Mage.
+   */
+  public void equipToWhiteMage(WhiteMage whiteMage);
+  
 }

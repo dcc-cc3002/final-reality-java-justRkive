@@ -13,16 +13,16 @@ import org.jetbrains.annotations.NotNull;
  * An abstract class that holds the common behaviour of all the characters in the game.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author Katia
  */
 public abstract class AbstractCharacter implements GameCharacter {
 
-  private int currentHp;
-  protected int maxHp;
-  protected int defense;
+  protected int currentHp;
+  protected final int maxHp;
+  protected final int defense;
   protected final BlockingQueue<GameCharacter> turnsQueue;
   protected final String name;
-  private ScheduledExecutorService scheduledExecutor;
+  protected ScheduledExecutorService scheduledExecutor;
 
   /**
    * Creates a new character.
@@ -36,7 +36,7 @@ public abstract class AbstractCharacter implements GameCharacter {
    * @param turnsQueue
    *     the queue with the characters waiting for their turn
    */
-  protected AbstractCharacter(@NotNull String name, int maxHp, int defense,
+  public AbstractCharacter(@NotNull String name, int maxHp, int defense,
       @NotNull BlockingQueue<GameCharacter> turnsQueue) throws InvalidStatValueException {
     Require.statValueAtLeast(1, maxHp, "Max HP");
     Require.statValueAtLeast(0, defense, "Defense");
@@ -46,28 +46,9 @@ public abstract class AbstractCharacter implements GameCharacter {
     this.turnsQueue = turnsQueue;
     this.name = name;
   }
-
+  
   @Override
-  public void waitTurn() {
-    scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-    if (this instanceof PlayerCharacter player) {
-      scheduledExecutor.schedule(
-          /* command = */ this::addToQueue,
-          /* delay = */ player.getEquippedWeapon().getWeight() / 10,
-          /* unit = */ TimeUnit.SECONDS);
-    } else {
-      var enemy = (Enemy) this;
-      scheduledExecutor.schedule(
-          /* command = */ this::addToQueue,
-          /* delay = */ enemy.getWeight() / 10,
-          /* unit = */ TimeUnit.SECONDS);
-    }
-  }
-
-  /**
-   * Adds this character to the turns queue.
-   */
-  private void addToQueue() {
+  public void addToQueue() {
     try {
       turnsQueue.put(this);
     } catch (Exception e) {
