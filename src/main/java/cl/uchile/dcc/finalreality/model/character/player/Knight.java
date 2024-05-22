@@ -96,3 +96,4 @@ public class Knight extends AbstractPlayerCharacter {
   public void equipStaff(Staff staff) {
   }
 }
+

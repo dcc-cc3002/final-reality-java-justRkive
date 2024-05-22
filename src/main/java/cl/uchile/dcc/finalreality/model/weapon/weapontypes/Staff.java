@@ -57,7 +57,7 @@ public class Staff extends AbstractWeapon {
   
   @Override
   public void equipToEngineer(Engineer engineer) {
-  engineer.equipStaff(this);
+    engineer.equipStaff(this);
   }
   
   @Override
